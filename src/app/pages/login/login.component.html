@@ -1,0 +1,71 @@
+<!-- <div>
+    <div class="row">
+        <div class="col-12 pl-0">
+            <form [formGroup]="loginSubmitForm" class="login-form"
+                (ngSubmit)="submit()">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="text" class="form-control" placeholder="Enter username here"
+                        formControlName="username">
+           
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="**********"
+                        formControlName="password">
+                 
+               
+                </div>
+                <button>
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offser-1 col-md-offset-2">
+            <form [formGroup]="signupForm" (ngSubmit)="signForm()">
+                <div formGroupName="userData">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input matInput type="text" formControlName="username" class="form-control">
+                        <!-- <span class="help-block" *ngIf="!f?.userData.username.valid && f.userData.username.touched">
+                        Please ender a valid username
+                    </span> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" formControlName="email" class="form-control">
+                    </div>
+                    
+                 
+                </div>
+                <div class="radio" *ngFor="let gender of genders">
+                    <label>
+                        <input type="radio" [value]="gender" formControlName="gender">{{gender}}
+                    </label>
+                </div>
+                <div formArrayName="hobbies">
+                    <h4>Your Hobbies</h4>
+                    <button class="btn btn-default" type="button" (click)="onAddHobby()">
+                        Add Hobby
+                    </button>
+                    <div class="form-group" *ngFor="let hobbyControl of controls; let i=index">
+                        <input type="text" class="form-control" [formControlName]="i">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<p class="primary"></p>

@@ -1,0 +1,158 @@
+@use '@angular/material' as mat;
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+$md-first: (
+  50 : #e2e2e2,
+  100 : #b7b6b6,
+  200 : #878686,
+  300 : #565555,
+  400 : #323030,
+  500 : #0e0c0c,
+  600 : #0c0a0a,
+  700 : #0a0808,
+  800 : #080606,
+  900 : #040303,
+  A100 : #a6a6a6,
+  A200 : #8c8c8c,
+  A400 : #737373,
+  A700 : #666666,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$md-second: (
+  50 : #fff6e2,
+  100 : #ffeab6,
+  200 : #ffdc86,
+  300 : #ffcd55,
+  400 : #ffc330,
+  500 : #ffb80c,
+  600 : #ffb10a,
+  700 : #ffa808,
+  800 : #ffa006,
+  900 : #ff9103,
+  A100 : #ffffff,
+  A200 : #fff9f2,
+  A400 : #ffe0bf,
+  A700 : #ffd4a6,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$md-third: (
+  50 : #e3e3e3,
+  100 : #bab9ba,
+  200 : #8c8b8c,
+  300 : #5e5d5d,
+  400 : #3c3a3b,
+  500 : #191718,
+  600 : #161415,
+  700 : #121111,
+  800 : #0e0d0e,
+  900 : #080708,
+  A100 : #ff5050,
+  A200 : #ff1d1d,
+  A400 : #e90000,
+  A700 : #cf0000,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$angular14-primary: mat.define-palette(mat.$yellow-palette);
+$angular14-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$angular14-warn: mat.define-palette(mat.$red-palette);
+
+$angular14-theme: mat.define-light-theme((color: (primary: $angular14-primary,
+        accent: $angular14-accent,
+        warn: $angular14-warn,
+      )));
+$first-primary: mat.define-palette($md-first,500);
+$first-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$first-warn: mat.define-palette(mat.$red-palette);
+$first-theme: mat.define-light-theme((color: (primary: $angular14-primary,
+        accent: $angular14-accent,
+        warn: $angular14-warn,
+      )));
+
+$second-primary: mat.define-palette($md-second,500);
+$second-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$second-warn: mat.define-palette(mat.$red-palette);
+
+$second-theme: mat.define-light-theme((color: (primary: $angular14-primary,
+        accent: $angular14-accent,
+        warn: $angular14-warn,
+      )));
+$third-primary: mat.define-palette(mat.$indigo-palette);
+$third-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$third-warn: mat.define-palette(mat.$red-palette);
+
+$third-theme: mat.define-light-theme((color: (primary: $angular14-primary,
+        accent: $angular14-accent,
+        warn: $angular14-warn,
+      )));
+    
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($angular14-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.primary{
+  font-size:50px !important;
+  color:mat.get-color-from-palette($third-primary)
+
+}
